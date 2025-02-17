@@ -55,11 +55,9 @@ def train_xgboost_classifier(X_train, X_test, y_train, y_test):
     disp.plot(cmap=plt.cm.Blues)
     plt.title("Confusion Matrix for XGBoost Classifier")
     plt.show()
-
-
-
     class_report = classification_report(y_test, predictions,output_dict=True)
- # Entfernen der Durchschnittswerte für eine reine Klassenübersicht
+    
+    # Entfernen der Durchschnittswerte für eine reine Klassenübersicht
     class_report.pop("accuracy", None)
     class_report.pop("macro avg", None)
     class_report.pop("weighted avg", None)
@@ -96,8 +94,8 @@ def train_xgboost_classifier(X_train, X_test, y_train, y_test):
 
     # Diagramm anzeigen
     plt.show()
-
     return model
+    
 # XGBoost Regressor wird hier nicht angewendet aber als If-else verfuegbar
 def train_xgboost_regressor(X_train, X_test, y_train, y_test):
     model = XGBRegressor(eval_metric='rmse')
